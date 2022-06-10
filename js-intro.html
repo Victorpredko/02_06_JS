@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Знайомство з JS Predko</title>
+
+    <script>
+		var photos_count = 5; //поміщяємо зміну //
+		var	currentPhotoIndex = 1; 
+		function show_next_photo() {
+			currentPhotoIndex++;
+			if (currentPhotoIndex > photos_count) currentPhotoIndex = 1;
+
+			var elem = document.getElementById('_current_foto');
+			elem.src = "photo" + currentPhotoIndex + ".jpg";
+		}//switch foto
+
+		function add_photo() {
+			currentPhotoIndex++;
+			var new_img = document.createElement("img");
+			
+			if (currentPhotoIndex > photos_count) currentPhotoIndex = 1;
+			new_img.src = "photo" + currentPhotoIndex + ".jpg";
+			var container_elem = document.getElementById("gallery_photo");
+
+			container_elem.appendChild(new_img);
+
+		}
+	</script>
+</head>
+<body>
+	<div id="gallery_photo">
+		<img id="_current_foto" src="photo1.jpg" />
+	</div>
+	<button onclick="show_next_photo()">Наступне фото</button>
+	<button onclick="add_photo()">Додати фото</button>
+</body>
+</html>
